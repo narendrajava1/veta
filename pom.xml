@@ -2,7 +2,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>veta</groupId>
+    <groupId>com.veta</groupId>
     <artifactId>veta</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -45,10 +45,29 @@
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>4.30.0</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <!--<dependency>
+                <groupId>com.veta</groupId>
+                <artifactId>veta-dao</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
@@ -80,10 +99,10 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+            </plugin>-->
         </plugins>
         <pluginManagement>
             <plugins>
@@ -92,11 +111,20 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.10.1</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.5.2</version>
+                    <configuration>
+                        <forkCount>1</forkCount>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
 
     <modules>
+        <module>veta-dao</module>
         <module>cattle-manage</module>
     </modules>
 </project>
