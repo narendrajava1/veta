@@ -7,7 +7,6 @@
         <artifactId>veta</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>com.veta</groupId>
     <artifactId>cattle-manage</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>cattle-manage</name>
@@ -38,6 +37,16 @@
             <artifactId>veta-dao</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <!--<dependency>
+            <groupId>com.veta</groupId>
+            <artifactId>veta-modal</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>-->
+        <!--<dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>4.30.0</version>
+        </dependency>-->
     </dependencies>
 
     <build>

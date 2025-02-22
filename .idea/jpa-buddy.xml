@@ -3,5 +3,7 @@
   <component name="JpaBuddyIdeaProjectConfig">
     <option name="defaultUnitInitialized" value="true" />
     <option name="renamerInitialized" value="true" />
+    <option name="updateChangeLogPath" value="src/main/resources/db/changelog/db.changelog-master.sql" />
+    <option name="updateLogLevel" value="DEBUG" />
   </component>
 </project>

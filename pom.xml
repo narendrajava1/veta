@@ -11,7 +11,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.4.2</version>
-        <relativePath />
+        <relativePath/>
     </parent>
 
     <properties>
@@ -21,7 +21,6 @@
         <org.projectlombok.version>1.18.20</org.projectlombok.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -55,25 +54,38 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
             <version>4.30.0</version>
         </dependency>
     </dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <!--<dependency>
-                <groupId>com.veta</groupId>
-                <artifactId>veta-dao</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>-->
-        </dependencies>
-    </dependencyManagement>
-
 
     <build>
         <plugins>
+            <!--<plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>4.30.0</version> &lt;!&ndash; Replace with the desired version &ndash;&gt;
+                <executions>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    &lt;!&ndash;<changeLogFile>classpath:/db/changelog/db.changelog-master.xml</changeLogFile>&ndash;&gt;
+                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                    &lt;!&ndash; Additional configurations as needed &ndash;&gt;
+                </configuration>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -99,10 +111,13 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
-            <!--<plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>-->
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
@@ -119,11 +134,35 @@
                         <forkCount>1</forkCount>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>com.coveo</groupId>
+                    <artifactId>fmt-maven-plugin</artifactId>
+                    <version>2.5.1</version>
+                    <configuration>
+                        <displayLimit>
+                            10
+                        </displayLimit>
+                        <filesNamePattern>.*\.java</filesNamePattern>
+                        <style>google</style>
+                        <verbose>true</verbose>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>format</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
+
     </build>
 
     <modules>
+        <module>milk-rates-manage</module>
+        <module>veta-modal</module>
         <module>veta-dao</module>
         <module>cattle-manage</module>
     </modules>

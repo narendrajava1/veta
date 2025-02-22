@@ -7,6 +7,9 @@
         <option value="$PROJECT_DIR$/cattle-manage/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/veta-dao/pom.xml" />
+        <option value="$PROJECT_DIR$/milk-rates-manage/pom.xml" />
+        <option value="$PROJECT_DIR$/veta-modal/pom.xml" />
+        <option value="$PROJECT_DIR$/database_structre/pom.xml" />
       </list>
     </option>
   </component>

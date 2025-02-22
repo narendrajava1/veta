@@ -8,7 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
       </profile>
-      <profile name="Annotation profile for veta" enabled="true">
+      <profile name="Annotation profile for database_structre" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -18,7 +18,10 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
         </processorPath>
+        <module name="veta-modal" />
         <module name="cattle-manage" />
+        <module name="milk-rates-manage" />
+        <module name="database_structre" />
         <module name="veta-dao" />
       </profile>
     </annotationProcessing>
@@ -26,8 +29,11 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="cattle-manage" options="-parameters" />
+      <module name="database_structre" options="-parameters" />
+      <module name="milk-rates-manage" options="-parameters" />
       <module name="veta" options="-parameters" />
       <module name="veta-dao" options="-parameters" />
+      <module name="veta-modal" options="-parameters" />
     </option>
   </component>
 </project>
